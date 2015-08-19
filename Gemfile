@@ -19,3 +19,9 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+
+# brew install imagemagick # OS X
+# sudo apt-get install imagemagick # Ubuntu

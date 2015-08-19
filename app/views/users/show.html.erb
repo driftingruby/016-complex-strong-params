@@ -1,0 +1,28 @@
+<div class='row'>
+  <div class='col-xs-4'>
+    <legend>About <%= @user.full_name %></legend>
+    <p><%= image_tag attachment_url(@user, :profile_image, :fill, 150, 150, format: "jpg") %></p>
+    <p>
+      <strong>First name:</strong>
+      <%= @user.first_name %>
+    <br>
+      <strong>Last name:</strong>
+      <%= @user.last_name %>
+    <br>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+  </div>
+  <div class='col-xs-8'>
+    <legend>Biography</legend>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum mauris sed nunc efficitur, in rhoncus nibh tempus. Nam ipsum massa, dapibus nec mauris ac, porta eleifend nisl. Morbi venenatis rhoncus lorem, at rutrum ex dapibus id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sagittis, enim ut faucibus viverra, nisi neque tincidunt enim, et elementum nulla leo eu leo. Etiam et sodales quam. Suspendisse ac aliquam arcu. Nulla facilisi. Nunc dapibus dui nec semper posuere. Morbi id ligula arcu. Sed sed molestie nisi, eget viverra purus. Nullam molestie, est at luctus ultricies, nulla velit blandit ante, in suscipit arcu metus volutpat elit. Etiam elementum enim id augue blandit egestas sed quis nulla.</p>
+
+    <p>Suspendisse potenti. Praesent ac erat quam. Ut commodo sollicitudin nunc vitae hendrerit. Curabitur feugiat nunc a nulla gravida tristique. Suspendisse tincidunt cursus elit sit amet laoreet. In tristique volutpat lorem in dapibus. Morbi at erat nisi. Duis ut enim sagittis, vulputate est ac, mollis felis. Phasellus dolor nulla, faucibus sed odio a, aliquet porta arcu. Donec in massa ex. Maecenas gravida, libero sed rhoncus varius, felis lacus bibendum magna, a semper justo purus sed justo. Pellentesque eget bibendum mauris. Aliquam eget posuere ex, vel feugiat augue.</p>
+
+    <p>Duis eget fringilla mauris, sit amet porta libero. Fusce id erat ut ligula accumsan pretium a non lectus. Morbi a tellus erat. Sed vehicula venenatis aliquet. Sed tempus dolor sed ex vulputate tristique. Vestibulum sagittis nulla velit. Cras semper lorem non neque congue, et porttitor lectus eleifend. Praesent non tempus elit. Duis congue cursus massa, a facilisis metus eleifend dignissim. Mauris ac facilisis elit. Vivamus nec nisi at urna semper accumsan eu at neque. Sed posuere fermentum elit, ac tristique nisi hendrerit at. Integer tincidunt lacus nibh, vitae laoreet massa porttitor in. Proin porttitor a risus iaculis faucibus.</p>
+
+    <p>Nam in dapibus eros, eget sagittis erat. Maecenas mattis sem nec arcu scelerisque pharetra. Ut finibus arcu a hendrerit bibendum. Pellentesque congue congue felis, vel rutrum est tincidunt hendrerit. Aliquam at tempor mi, sit amet accumsan mi. Sed ultrices erat dui, ut condimentum ex pretium at. Vestibulum suscipit erat sed magna laoreet tincidunt. Sed ultrices sodales mi, a lobortis dolor placerat eu. Nulla vehicula suscipit quam, nec tincidunt est pellentesque vel. Fusce fermentum tellus a elit egestas, ac posuere tellus faucibus. Phasellus id eros lorem. Nulla id augue accumsan, volutpat ligula a, finibus lorem. Mauris sit amet urna vitae quam mollis hendrerit. Nunc vestibulum, neque porta mattis ultricies, lorem magna interdum est, in elementum diam sem et tortor. Nunc malesuada ligula turpis, sit amet viverra arcu mollis quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+  </div>
+</div>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
