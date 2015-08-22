@@ -1,6 +1,26 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def download_file
+    @user = User.friendly.find(params[:user_id])
+    authorize @user
+    send_file @user.resume.download.path, disposition: :inline, filename: @user.resume_filename
+  end
+
+  def download_image
+    @user = User.find(params[:user_id])
+    authorize @user
+    processor = Refile.processor(:fill, Refile::MiniMagick.new(:fill))
+    temp_file = Tempfile.new('profile_image')
+    temp_file.binmode
+    temp_file.write @user.profile_image.read
+    temp_file.rewind
+    image_file = MiniMagick::Image.new(temp_file.path)
+    file = processor.fill(image_file, 150, 150)
+    temp_file.close
+    send_file file.path, disposition: :inline, filename: @user.profile_image_filename
+  end
+
   # GET /users
   # GET /users.json
   def index

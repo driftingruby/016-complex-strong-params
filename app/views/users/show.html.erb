@@ -1,7 +1,10 @@
 <div class='row'>
   <div class='col-xs-4'>
     <legend>About <%= @user.full_name %></legend>
-    <p><%= image_tag attachment_url(@user, :profile_image, :fill, 150, 150, format: "jpg") %></p>
+    <p>
+      <%= image_tag user_download_path(@user) if policy(@user).download? %>
+      <%# image_tag attachment_url(@user, :profile_image, :fill, 150, 150, format: "jpg") %>
+    </p>
     <p>
       <strong>First name:</strong>
       <%= @user.first_name %>

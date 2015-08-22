@@ -19,6 +19,8 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+gem "pundit"
+gem 'devise'
 
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
