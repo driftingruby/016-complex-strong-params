@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150822023533) do
     t.string   "profile_image_filename"
     t.integer  "profile_image_size"
     t.string   "profile_image_content_type"
+    t.integer  "role",                       default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

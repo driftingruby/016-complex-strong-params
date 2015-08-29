@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def download_file
-    @user = User.friendly.find(params[:user_id])
-    authorize @user
-    send_file @user.resume.download.path, disposition: :inline, filename: @user.resume_filename
-  end
-
-  def download_image
+  def download
     @user = User.find(params[:user_id])
     authorize @user
     processor = Refile.processor(:fill, Refile::MiniMagick.new(:fill))
@@ -44,7 +38,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(permitted_params.user)
 
     respond_to do |format|
       if @user.save
@@ -61,7 +55,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(permitted_params.user)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -87,8 +81,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :profile_image)
-    end
+    # # Never trust parameters from the scary internet, only allow the white list through.
+    # def user_params
+    #   params.require(:user).permit(:first_name, :last_name, :email, :profile_image)
+    # end
 end
